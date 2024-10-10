@@ -1,4 +1,4 @@
-import fetchAsteroids from '../repository/nasaRepository.js';
+import fetchAsteroids from '../repository/asteroidRepository.js';
 import {config} from "dotenv";
 
 async function fetchAsteroid(date, showDangerous, showCount) {
