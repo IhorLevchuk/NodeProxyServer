@@ -2,20 +2,10 @@
   "name": "proxyserver",
   "version": "1.0.0",
   "description": "Node - Proxy Server",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon -L server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ihar Liauchuk",
-  "license": "ISC",
-  "dependencies": {
-    "chokidar": "^3.6.0",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "nodemon": "^3.1.7",
-    "nunjucks": "^3.2.4"
-  },
-  "devDependencies": {
-    "@types/nunjucks": "^3.2.6"
-  }
+  "license": "ISC"
 }

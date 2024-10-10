@@ -4,5 +4,3 @@
 ### Intellij ###
 .idea/
 *.iml
-
-.env
