@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+  {% if body.count %}
+    <div>Count: {{ body.count }}</div>
+  {% endif %}
+
+  {% if body.wereDangerousMeteors %}
+    <div>Were dangerous meteors: {{ body.wereDangerousMeteors }}</div>
+  {% endif %}
+  
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Diameter min</th>
+      <th>Diameter max</th>
+      <th>Potentially hazardous</th>
+      <th>Close approach date</th>
+      <th>Relative velocity</th>
+    </tr>
+    {% for item in body.asteroids %}
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.diameter.estimated_diameter_min }}</td>
+      <td>{{ item.diameter.estimated_diameter_max }}</td>
+      <td>{{ item.is_potentially_hazardous_asteroid }}</td>
+      <td>{{ item.close_approach_date_full }}</td>
+      <td>{{ item.relative_velocity }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
