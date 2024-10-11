@@ -1,11 +1,11 @@
 import fetchAsteroids from '../repository/asteroidRepository.js';
 import {config} from "dotenv";
 
-async function fetchAsteroid(date, showDangerous, showCount) {
+async function fetchAsteroid(date, wereDangerousMeteors, count) {
     const {startDate, endDate} = getStartAndEndDates(date);
     
     const jsonBody = await fetchAsteroids(startDate, endDate);    
-    return transformBody(jsonBody, showCount,showDangerous);
+    return transformBody(jsonBody, count,wereDangerousMeteors);
 }
 
 function transformBody(jsonBody, showCount, showDangerous) {
