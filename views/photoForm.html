@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<form action="/photo" method="POST">
+
+    <label for="userId">User Id:</label><br>
+    <input type="text" id="userId" name="userId" required><br>
+
+    <label for="userName">User Name:</label><br>
+    <input type="text" id="userName" name="userName" required><br>
+
+    <label for="userApiKey">Api Key:</label><br>
+    <input type="text" id="userApiKey" name="userApiKey" required><br>
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
