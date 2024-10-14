@@ -1,9 +1,9 @@
 class Exception extends Error {
-    constructor(code, massage) {
-        super();
-        this.code = code;
-        this.massage = massage;
-    }
+  constructor (code, massage) {
+    super()
+    this.code = code
+    this.massage = massage
+  }
 }
 
-export default Exception;
+export default Exception
