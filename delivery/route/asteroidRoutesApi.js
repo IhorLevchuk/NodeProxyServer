@@ -1,11 +1,11 @@
 import express from 'express'
-const router = express.Router();
 
-import { asteroidQuerySchema } from "../../validator/asteroidShema.js"
-import { validateQuery } from "../../validator/validator.js";
+import { asteroidQuerySchema } from '../../validator/asteroidShema.js'
+import { validateQuery } from '../../validator/validator.js'
 
-import getAsteroid from '../asteroidControllerApi.js';
+import getAsteroid from '../asteroidControllerApi.js'
+const router = express.Router()
 
-router.get('/api/asteroids', validateQuery(asteroidQuerySchema), getAsteroid);
+router.get('/api/asteroids', validateQuery(asteroidQuerySchema), getAsteroid)
 
-export default router;
+export default router
