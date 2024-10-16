@@ -4,9 +4,9 @@ const plugin = {
   },
   rules: {
     'no-empty-catch': {
-      create (context) {
+      create (context: any) {
         return {
-          CatchClause (node) {
+          CatchClause (node: any) {
             if (node.body.body.length === 0) {
               context.report({ node: node.body, messageId: 'emptyCatch' })
             }

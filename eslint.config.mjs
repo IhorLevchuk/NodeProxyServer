@@ -3,20 +3,22 @@ import standard from 'eslint-config-standard'
 import pluginImport from 'eslint-plugin-import'
 import pluginPromise from 'eslint-plugin-promise'
 import pluginN from 'eslint-plugin-n'
-import customRules from 'eslint-plugin-custom-rules'
+import tseslint from 'typescript-eslint'
 
 export default [
   js.configs.recommended,
-
+  ...tseslint.configs.recommended,
   {
     plugins: {
       n: pluginN,
       import: pluginImport,
-      promise: pluginPromise,
-      customRules
+      promise: pluginPromise
+    },
+    languageOptions: {
+      parser: tseslint.parser
     },
     rules: {
-      'customRules/no-empty-catch': 'error',
+      '@typescript-eslint/no-explicit-any': 'off',
       ...standard.rules
     }
   }

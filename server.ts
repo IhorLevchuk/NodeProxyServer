@@ -1,10 +1,10 @@
 import express from 'express'
-import asteroidRouterApi from './delivery/route/asteroidRoutesApi.js'
-import asteroidRouter from './delivery/route/asteroidRoutes.js'
-import photoRouterApi from './delivery/route/photoRoutesApi.js'
-import photoRouter from './delivery/route/photoRoutes.js'
-import config from './config/config.js'
-import errorHandler from './exception/errorMiddleware.js'
+import asteroidRouterApi from './delivery/route/asteroidRoutesApi'
+import asteroidRouter from './delivery/route/asteroidRoutes'
+import photoRouterApi from './delivery/route/photoRoutesApi'
+import photoRouter from './delivery/route/photoRoutes'
+import config from './config/config'
+import errorHandler from './exception/errorHandler'
 import nunjucks from 'nunjucks'
 
 const server = express()
