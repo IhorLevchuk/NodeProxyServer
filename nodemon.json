@@ -1,6 +1,6 @@
 {
-  "watch": ["./"],
+  "watch": ["src"],
   "ext": "ts",
   "ignore": ["/build"],
-  "exec": "npx ts-node server.ts"
+  "exec": "ts-node-dev --files --no-deps --respawn --poll --interval 1000 ./src/main.ts"
 }
