@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/node'
+import { nodeProfilingIntegration } from '@sentry/profiling-node'
 import express, { Express } from 'express'
 import { Configuration } from './config/config'
 import nunjucks from 'nunjucks'
@@ -23,8 +25,19 @@ class App {
       @inject(TYPES.IPhotoController) private readonly photoController: IPhotoController,
       @inject(TYPES.IErrorHandler) private readonly errorHandler: IErrorHandler
   ) {
+    this.configureSentry()
+
     this.app = express()
     this.port = Number(this.config.get('SERVER_PORT'))
+  }
+
+  configureSentry (): void {
+    Sentry.init({
+      dsn: this.config.get('SENTRY_DSN'),
+      integrations: [nodeProfilingIntegration()],
+      tracesSampleRate: 1.0,
+      profilesSampleRate: 1.0
+    })
   }
 
   configureNunjucks (): void {
@@ -48,6 +61,7 @@ class App {
   }
 
   useExceptionFilters (): void {
+    Sentry.setupExpressErrorHandler(this.app)
     this.app.use(this.errorHandler.catch.bind(this.errorHandler))
 
     this.app.use('*', (req, res) => {
@@ -62,10 +76,6 @@ class App {
     this.useExceptionFilters()
     this.server = this.app.listen(this.port)
     console.log(`[App] Server listening at http://localhost:${this.port}`)
-  }
-
-  public close (): void {
-    this.server.close()
   }
 }
 
